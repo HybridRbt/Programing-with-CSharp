@@ -59,7 +59,9 @@ namespace PrimitiveDataTypes
 
         private void showIntValue()
         {
-            value.Text = "to do";
+            int intVar;
+            intVar = 42;
+            value.Text = intVar.ToString();
         }
 
         private void showLongValue()
