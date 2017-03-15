@@ -45,8 +45,44 @@ namespace Selection
 
         private int dateCompare(DateTime leftHandSide, DateTime rightHandSide)
         {
-            // TO DO
-            return 42;
+            int result;
+
+            if (leftHandSide == null)
+                throw new Exception("First date is null!");
+
+            if (rightHandSide == null)
+                throw new Exception("Second date is null!");
+
+            var firstYear = leftHandSide.Date.Year;
+            var firstMonth = leftHandSide.Date.Month;
+            var firstDay = leftHandSide.Date.Day;
+
+            var secondYear = rightHandSide.Date.Year;
+            var secondMonth = rightHandSide.Date.Month;
+            var secondDay = rightHandSide.Date.Day;
+
+            if (firstYear < secondYear)
+                result = -1;
+            else if (firstYear > secondYear)
+                result = 1;
+            else // year is equal, compare month
+            {
+                if (firstMonth < secondMonth)
+                    result = -1;
+                else if (firstMonth > secondMonth)
+                    result = 1;
+                else // month is equal, compare day
+                {
+                    if (firstDay < secondDay)
+                        result = -1;
+                    else if (firstDay > secondDay)
+                        result = 1;
+                    else // truly equal
+                        result = 0;
+                }   
+            }
+
+            return result;
         }
 
         #region Conversion properties to cater for the deifferences betwwen the DatePicker control in Windows 7 and Windows 8.1
