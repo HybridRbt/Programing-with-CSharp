@@ -27,6 +27,22 @@ namespace DoStatement
 
         private void showStepsClick(object sender, RoutedEventArgs e)
         {
+            var amount = int.Parse(number.Text);
+            steps.Text = "";
+            var current = "";
+
+            do
+            {
+                var nextDigit = amount % 8;
+                amount /= 8;
+                var digitCode = "0" + nextDigit;
+                var digit = Convert.ToChar(digitCode);
+                current = digit + current;
+                steps.Text += current + "\n";
+            } while (amount != 0);
+            {
+                
+            }
 
         }
     }
