@@ -35,7 +35,7 @@ namespace DoStatement
             {
                 var nextDigit = amount % 8;
                 amount /= 8;
-                var digitCode = "0" + nextDigit;
+                var digitCode = '0' + nextDigit;
                 var digit = Convert.ToChar(digitCode);
                 current = digit + current;
                 steps.Text += current + "\n";
